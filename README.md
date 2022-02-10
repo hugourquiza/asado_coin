@@ -8,5 +8,5 @@ Muy sencillo, por cada DAI que metés al smart contract, este te manda un ASC. C
 Asado Coin (ASC) is a token backed with asado. It runs on the Binance Smart Chain.
 The idea is to have a meeting point for the crypto community and sharing asado, since you have to buy the meat first I wrote this smart contract.
 
-It's very simple, each DAI that you send to the smart contract, it will send you an ASC in return. With those ASC you assist to the crypto asado for eating and drinking wine.
+It's very simple, each DAI that you send to the smart contract, it will send you an ASC in return. With those ASC you come to the crypto asado for eating and drinking wine.
 
