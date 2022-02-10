@@ -28,7 +28,7 @@ contract ASCAirdrop {
         recv_ad[msg.sender] = true;     
     }
     
-    function update_airdrop_amoun(uint value) public {
+    function update_airdrop_amount(uint value) public {
         a_val=value;
     }
     function unstake_tokens(uint _amount) public {
