@@ -14,10 +14,10 @@ contract ASCAirdrop {
 
     constructor() {        
         //dev only
-        ascToken=ASCToken(0x19801617211f09a2Ef9C5E34eA8B2d7aAd8E79e2);
+        //ascToken=ASCToken(0x19801617211f09a2Ef9C5E34eA8B2d7aAd8E79e2);
 
         //prod
-        //ascToken=ASCToken(0x167DFB2f0ef926122ec0de9726602c504c46dF64);
+        ascToken=ASCToken(0x167DFB2f0ef926122ec0de9726602c504c46dF64);
         a_val=1;
         owner = msg.sender;
     }
@@ -29,6 +29,7 @@ contract ASCAirdrop {
     }
     
     function update_airdrop_amount(uint value) public {
+        require(msg.sender == owner, "owner only juira!");
         a_val=value;
     }
     function unstake_tokens(uint _amount) public {
