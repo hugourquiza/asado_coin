@@ -23,9 +23,9 @@ contract ASCAirdrop {
     }
 
     function receive_airdrop() public {    
-        require(!recv_ad[msg.sender], "ya tuviste tu airdrop");
-        ascToken.transfer(msg.sender,a_val);   
+        require(!recv_ad[msg.sender], "ya tuviste tu airdrop");        
         recv_ad[msg.sender] = true;     
+        ascToken.transfer(msg.sender,a_val);   
     }
     
     function update_airdrop_amount(uint value) public {
