@@ -6,20 +6,26 @@ interface ASCToken {
     function transfer(address dst, uint wad) external returns (bool);
 }
 
+
 contract ASCAirdrop {
     uint a_val;
     ASCToken ascToken;
     mapping(address => bool) public recv_ad;
     address owner;   
 
-    constructor() {        
+    constructor(address asc_token_addr) {        
         //dev only
         //ascToken=ASCToken(0x19801617211f09a2Ef9C5E34eA8B2d7aAd8E79e2);
 
         //prod
-        ascToken=ASCToken(0x167DFB2f0ef926122ec0de9726602c504c46dF64);
+        ascToken=ASCToken(asc_token_addr);
         a_val=1;
         owner = msg.sender;
+    }
+
+    modifier owner_only() {
+        require(msg.sender == owner, "owner only juira!");
+        _;
     }
 
     function receive_airdrop() public {    
@@ -28,12 +34,10 @@ contract ASCAirdrop {
         ascToken.transfer(msg.sender,a_val);   
     }
     
-    function update_airdrop_amount(uint value) public {
-        require(msg.sender == owner, "owner only juira!");
+    function update_airdrop_amount(uint value) public owner_only {        
         a_val=value;
     }
-    function unstake_tokens(uint _amount) public {
-       require(msg.sender == owner, "owner only juira!");
+    function unstake_tokens(uint _amount) public owner_only{       
        ascToken.transfer(msg.sender, _amount);
     }
     
